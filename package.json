@@ -8,9 +8,9 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/cloner.es.js",
-      "require": "./dist/cloner.umd.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/cloner.umd.js"
     }
   },
   "files": [
