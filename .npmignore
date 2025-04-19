@@ -4,6 +4,7 @@ examples/
 typedoc/
 doc/
 node_modules/
+coverage/
 *.tsbuildinfo
 # Config files (unless needed for runtime)
 tsconfig.json
