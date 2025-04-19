@@ -1,0 +1,29 @@
+src/
+test/
+examples/
+typedoc/
+doc/
+node_modules/
+*.tsbuildinfo
+# Config files (unless needed for runtime)
+tsconfig.json
+webpack.config.js
+vite.config.ts
+typedoc.json
+.eslintrc
+.prettierrc
+
+# Version control
+.git/
+.gitignore
+.github/
+
+# IDE/Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS metadata
+.DS_Store
+Thumbs.db
