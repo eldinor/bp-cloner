@@ -62,6 +62,8 @@ Then use like
         rr.rotation = { x: 70, y: 30, z: 0 };
         mc.addEffector(rr, 1);</pre>
 
+Or if you use `<script>` tags see UMD and ESM variants here - https://www.jsdelivr.com/package/npm/bp-cloner?tab=files
+
 ## Getting started with this repo
 
 This is a Babylon.js project using typescript, latest babylon.js es6 core module, vite 6.
