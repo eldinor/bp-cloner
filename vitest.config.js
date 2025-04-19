@@ -8,8 +8,8 @@ export default defineConfig({
   },
   coverage: {
     exclude: [
-      'src/main.ts',
-      'src/index.ts',
+      '**/*.{js,ts}',          // Exclude all JS/TS files outside /src
+      '!src/**/*.{js,ts}',     // Include only /src files
     ]
   }
 })

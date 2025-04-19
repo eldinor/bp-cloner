@@ -1,10 +1,10 @@
 # Cloner System for Babylon.js
 
-Based on Cloner System extension https://github.com/androdlang/Extensions/tree/master/ClonerSystem by https://github.com/androdlang
+More info and explanations here - https://doc.babylonjs.com/communityExtensions/clonerSystem
 
-More info and docs here - https://doc.babylonjs.com/communityExtensions/clonerSystem
+TypeDoc Documentation - https://clonersystem.babylonpress.org/docs/
 
-Definitions:
+### Definitions:
 
 <ul><li>
 		Cloners: given one or several meshes, either clones or instances will distributed in a specific manner. If more than one mesh is provided, the meshes are distributed alternatively. Additionally, cloners can be nested, so it is possible to clone cloners. Each cloner can have several Effectors (in particular order) to influence the Scale/Position/Rotation parameter of a clone (or cloner). A sensitivity parameter controls this influence for a cloner. Following Objects are designated:
@@ -79,3 +79,7 @@ To run the basic Cloner System scene (with some animations):
 ## TypeDoc Support
 
 To generate documentation use <pre>npx typedoc --entryPointStrategy Expand src/Cloner --exclude "src/Cloner/index.ts"</pre>
+
+### Contributors
+
+Based on Cloner System extension https://github.com/androdlang/Extensions/tree/master/ClonerSystem by https://github.com/androdlang
