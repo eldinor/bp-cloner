@@ -6,6 +6,7 @@ typedoc/
 doc/
 node_modules/
 coverage/
+dist-demo/
 *.tsbuildinfo
 # Config files (unless needed for runtime)
 tsconfig.json

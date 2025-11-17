@@ -76,9 +76,45 @@ To run the basic Cloner System scene (with some animations):
 4. To test : `npm run test` , for coverage `npm run test:coverage`
 5. Build with `npm run build` (only Cloner folder to dist/).
 
+### Demo Build and Preview
+
+To build and preview the demo application:
+
+- **Build demo for production**: `npm run build:demo` - Creates optimized demo in `dist-demo/` folder
+- **Preview built demo**: `npm run preview:demo` - Serves the built demo at http://localhost:4173/
+
+The demo build creates a production-ready version of the cloner showcase with all animations and effects, ready for deployment to any static hosting service.
+
 ## TypeDoc Support
 
 To generate documentation use <pre>npx typedoc --entryPointStrategy Expand src/Cloner --exclude "src/Cloner/index.ts"</pre>
+
+## Demo Scene Cloners
+
+The demo scene (`src/scene.ts`) showcases 19 different cloner configurations with smooth animations:
+
+1. **DNA Double Helix** - Two intertwined spiral strands with connecting bars
+2. **Pulsating Crystal Matrix** - 5×5×5 grid of transparent polyhedrons with smooth pulsating
+3. **Wave Matrix** - 12×12 grid creating dynamic sine wave patterns
+4. **Golden Spiral Galaxy** - 80 elements spiraling outward using golden angle
+5. **Morphing Sphere** - Radial sphere with random position variations
+6. **Orbiting Rings** - Three concentric rings rotating at different speeds
+7. **Fibonacci Tower** - Vertical tower with Fibonacci spiral rotation
+8. **Radial Burst** - Explosive radial pattern with pulsating radius
+9. **Helix Tower** - Vertical helix structure with smooth growth animation
+10. **Concentric Circles** - Three counter-rotating circles with breathing effect
+11. **Staircase to Heaven** - Ascending stairs with dramatic expansion/contraction
+12. **Particle Explosion** - Multi-layered expanding particle system
+13. **Twisted Ribbon** - Spiraling ribbon with tightening/loosening animation
+14. **Pyramid Structure** - 3D pyramid grid with vertical oscillation
+15. **Vortex Tunnel** - Spinning tunnel with pulsing depth
+16. **Flower Petals** - Radial petals opening and closing
+17. **Cube Lattice** - 3D grid with random position/rotation variations
+18. **Sine Wave Path** - Linear path with wave motion and compression
+19. **Spinning Blades** - Radial blades with dramatic radius expansion
+20. **Atom Model** - Nucleus with three electron orbital rings
+
+All cloners feature smooth SineEase animations on radius and growth properties, PBR materials with metallic and emissive effects, and an auto-rotating camera.
 
 ### Contributors
 
