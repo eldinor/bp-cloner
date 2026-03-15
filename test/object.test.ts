@@ -126,6 +126,25 @@ describe("ObjectCloner with NullEngine", () => {
     expect(decomposition.translation.equals(new Vector3(1, 0, 0))).toBe(true);
   });
 
+  it("should include wrapper scaling in exported matrices", () => {
+    const cloner = new ObjectCloner([sourceMesh1], templateMesh, scene);
+    const clone = cloner.root?.getChildren()[0] as Mesh;
+    clone.scaling = new Vector3(2, 3, 4);
+
+    const matrices = cloner.toMatrix();
+    const decomposition = {
+      translation: new Vector3(),
+      rotation: new Quaternion(),
+      scaling: new Vector3(),
+    };
+
+    matrices[0].decompose(decomposition.scaling, decomposition.rotation, decomposition.translation);
+
+    expect(decomposition.scaling.x).toBeCloseTo(2);
+    expect(decomposition.scaling.y).toBeCloseTo(3);
+    expect(decomposition.scaling.z).toBeCloseTo(4);
+  });
+
   it("should update clone positions when effectors change", () => {
     const cloner = new ObjectCloner([sourceMesh1], templateMesh, scene);
     const originalPosition = cloner.root?.getChildren()[0].position.clone() || new Vector3();

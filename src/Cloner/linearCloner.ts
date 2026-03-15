@@ -96,7 +96,7 @@ export class LinearCloner extends Cloner {
       useInstances: this._useInstances,
       P: { x: this._P.x, y: this._P.y, z: this._P.z },
       S: { x: this._S.x, y: this._S.y, z: this._S.z },
-      R: { x: this._R.x, y: this._R.y, z: this._R.z },
+      R: this.rotation,
       iModeRelative: this._iModeRelative,
     });
     parent._cloner = c;

@@ -130,6 +130,21 @@ export class Cloner {
     return this._scene;
   }
 
+  private getCloneMatrix(clone: CMesh): Matrix {
+    const wrapperRotation = Quaternion.FromEulerVector(clone.rotation);
+    const wrapperMatrix = Matrix.Compose(clone.scaling, wrapperRotation, clone.position);
+    const child = clone.getChildren()[0] as Mesh | InstancedMesh | undefined;
+
+    if (!child) {
+      return wrapperMatrix;
+    }
+
+    const childRotation = Quaternion.FromEulerVector(child.rotation);
+    const childMatrix = Matrix.Compose(child.scaling, childRotation, child.position);
+
+    return childMatrix.multiply(wrapperMatrix);
+  }
+
   /**
    * Converts the Cloner to thin instances, then deletes this Cloner and returns an array of Cloner meshes. The source meshes are cloned, their clones set enabled. To display them use addSelf = true.
    * All cloned source meshes get the new parent with the rootName.
@@ -143,7 +158,6 @@ export class Cloner {
     //  console.log("cSystem", this);
     //  console.log("addSelf", addSelf);
 
-    let scale, rot, pos;
     const clonedMeshArray: Array<Mesh> = [];
 
     rootName = rootName ? rootName : this.constructor.name;
@@ -159,15 +173,8 @@ export class Cloner {
     });
 
     this._clones.forEach((c, index) => {
-      const inst = c.getChildren()[0] as InstancedMesh;
-
-      pos = c.position;
-      rot = Quaternion.FromEulerVector(inst.rotation);
-      scale = inst.scaling;
-
       const meshIndex = index % this._mesh.length;
-
-      const matrix = Matrix.Compose(scale, rot, pos);
+      const matrix = this.getCloneMatrix(c);
       clonedMeshArray[meshIndex].thinInstanceAdd(matrix);
 
       if (addSelf) {
@@ -192,18 +199,9 @@ export class Cloner {
     //  console.log("cSystem", this);
     //  console.log("addSelf", addSelf);
 
-    let scale, rot, pos;
-
     this._clones.forEach((c, index) => {
-      const inst = c.getChildren()[0] as InstancedMesh;
-
-      pos = c.position;
-      rot = Quaternion.FromEulerVector(inst.rotation);
-      scale = inst.scaling;
-
       const meshIndex = index % this._mesh.length;
-
-      const matrix = Matrix.Compose(scale, rot, pos);
+      const matrix = this.getCloneMatrix(c);
       this._mesh[meshIndex].thinInstanceAdd(matrix);
       this._mesh[meshIndex].setEnabled(true);
 
@@ -222,16 +220,9 @@ export class Cloner {
    **/
   toMatrix(): Matrix[] {
     const matrixArray: Matrix[] = [];
-    let scale, rot, pos;
 
-    this._clones.forEach((c, index) => {
-      const inst = c.getChildren()[0] as InstancedMesh;
-
-      pos = c.position;
-      rot = Quaternion.FromEulerVector(inst.rotation);
-      scale = inst.scaling;
-      const matrix = Matrix.Compose(scale, rot, pos);
-      matrixArray.push(matrix);
+    this._clones.forEach((c) => {
+      matrixArray.push(this.getCloneMatrix(c));
     });
     //   console.log(matrixArray);
     //

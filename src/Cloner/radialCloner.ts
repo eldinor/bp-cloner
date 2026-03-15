@@ -63,7 +63,7 @@ export class RadialCloner extends Cloner {
     this._plane = new Vector3(plane.x, plane.y, plane.z);
     this._startangle = (Math.PI * startangle) / 180;
     this._endangle = (Math.PI * endangle) / 180;
-    this._offset = offset;
+    this._offset = (Math.PI * offset) / 180;
     this._align = align;
     this._frame = 0;
     this._index = 0;

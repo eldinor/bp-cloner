@@ -104,7 +104,9 @@ export class MatrixCloner extends Cloner {
     this._mcount = m;
     this.delete();
     this._count = Number(this._mcount.x * this._mcount.y * this._mcount.z);
+    this._rootNode = new CMesh(`rootMC_${this._instance_nr}`, this._scene, null, this);
     this.createClones();
+    this.update();
   }
 
   get mcount() {
@@ -186,6 +188,7 @@ export class MatrixCloner extends Cloner {
     this._clones.length = 0;
     if (this._rootNode) {
       this._rootNode.dispose();
+      this._rootNode = null;
     }
   }
 

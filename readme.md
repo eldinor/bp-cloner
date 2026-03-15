@@ -91,7 +91,7 @@ To generate documentation use <pre>npx typedoc --entryPointStrategy Expand src/C
 
 ## Demo Scene Cloners
 
-The demo scene (`src/scene.ts`) showcases 19 different cloner configurations with smooth animations:
+The demo scene (`src/scene.ts`) showcases 20 different cloner configurations with smooth animations:
 
 1. **DNA Double Helix** - Two intertwined spiral strands with connecting bars
 2. **Pulsating Crystal Matrix** - 5×5×5 grid of transparent polyhedrons with smooth pulsating
@@ -119,3 +119,13 @@ All cloners feature smooth SineEase animations on radius and growth properties, 
 ### Contributors
 
 Based on Cloner System extension https://github.com/androdlang/Extensions/tree/master/ClonerSystem by https://github.com/androdlang
+
+## Changelog
+
+### Unreleased
+
+- Added dedicated demo build and preview commands using `vite.demo.config.ts`
+- Fixed `RadialCloner` constructor `offset` handling to consistently use degree-based public API values
+- Fixed nested `LinearCloner` rotation cloning so rotations are not double-converted
+- Fixed `MatrixCloner` root lifecycle when changing `mcount`
+- Fixed matrix and thin-instance export logic to include wrapper-node transforms such as `ObjectCloner` scaling
